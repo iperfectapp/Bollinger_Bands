@@ -4,7 +4,7 @@ pd.set_option('display.max_rows', 1000)
 
 
 # =====导入数据
-df = pd.read_hdf('/Users/jxing/Desktop/coin_quant_class/data/class8/eth_1min_data.h5', key='all_data')
+df = pd.read_hdf('/Users/liangbing/code/coin_quant/data/eth_1min_data.h5', key='all_data')
 
 
 # =====转换为其他分钟数据
