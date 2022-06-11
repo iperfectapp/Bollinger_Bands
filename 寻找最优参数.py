@@ -8,29 +8,28 @@ pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 pd.set_option('display.max_rows', 1000)
 
 
-# # 导入数据
-# df = pd.read_hdf('/Users/jxing/Desktop/coin_quant_class/data/class8/eth_1min_data.h5', key='all_data')
-#
-# # 转换数据周期
-# rule_type = '15T'
-# df = transfer_to_period_data(df, rule_type)
-#
-# # 计算交易信号
-# para = [150, 3]
-# df = signal_bolling(df, para)
-#
-# df = df[df['candle_begin_time'] >= pd.to_datetime('2017-01-01')]
-# df.reset_index(inplace=True, drop=True)
-#
-# # 计算资金曲线
-# df = equity_curve_with_long_and_short(df, leverage_rate=3, c_rate=2.0/1000)
-#
-# print('策略最终收益：', df.iloc[-1]['equity_curve'])
-# exit()
+# 导入数据
+df = pd.read_hdf('/Users/liangbing/coin_quant/data/eth_1min_data.h5', key='all_data')
+
+# 转换数据周期
+rule_type = '15T'
+df = transfer_to_period_data(df, rule_type)
+
+# 计算交易信号
+para = [150, 3]
+df = signal_bolling(df, para)
+
+df.reset_index(inplace=True, drop=True)
+
+# 计算资金曲线
+df = equity_curve_with_long_and_short(df, leverage_rate=3, c_rate=2.0/1000)
+
+print('策略最终收益：', df.iloc[-1]['equity_curve'])
+
 
 # =====寻找最优参数
 # 导入数据
-all_data = pd.read_hdf('/Users/jxing/Desktop/coin_quant_class/data/class8/eth_1min_data.h5', key='all_data')
+all_data = pd.read_hdf('/Users/liangbing/coin_quant/data/eth_1min_data.h5', key='all_data')
 # 转换数据周期
 rule_type = '15T'
 all_data = transfer_to_period_data(all_data, rule_type)
