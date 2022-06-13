@@ -81,5 +81,5 @@ df['pos'].fillna(value=0, inplace=True)  # 将初始行数的position补全为0
 
 
 # =====将数据存入hdf文件中
-df.to_hdf('/Users/jxing/Desktop/coin_quant_class/data/class8/eth_bolling_signal.h5',
+df.to_hdf('/Users/liangbing/code/coin_quant/data/eth_bolling_signal.h5',
           key='all_data', mode='w')
